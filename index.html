@@ -36,7 +36,7 @@ h1{font-size:3vw;line-height:1.15;margin:3.2% 0 3.5%;font-weight:800;letter-spac
 .part-title{font-size:1.35vw;font-weight:800;margin:1.6% 0 1.2%;padding-bottom:.7%;border-bottom:2px solid var(--accent)}
 .part-title.s{margin-top:2.8%}
 
-/* 目录页专属修复样式 */
+/* 目录页样式 */
 .toc-group{margin:1.2% 0;font-size:1.05vw;line-height:1.55}
 .toc-group>b{display:block;color:var(--accent2);font-size:1.05vw;margin-bottom:.3%}
 .toc-item{display:flex;justify-content:space-between;align-items:center;gap:2%;padding:.25% 0;color:var(--ink);text-decoration:none;transition:color 0.2s}
@@ -87,10 +87,14 @@ h1{font-size:3vw;line-height:1.15;margin:3.2% 0 3.5%;font-weight:800;letter-spac
 }
 .disclaimer{font-size:1.02vw;line-height:1.85}
 .disclaimer p{margin:1.5% 0}
-#controls{position:fixed;z-index:20;bottom:2.2vh;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:.5rem;padding:.45rem .65rem;background:rgba(20,25,30,.78);backdrop-filter:blur(8px);border-radius:999px;box-shadow:0 6px 25px rgba(0,0,0,.25)}
-#controls button{border:0;background:transparent;color:#fff;cursor:pointer;width:34px;height:30px;border-radius:7px;font-size:16px}
-#controls button:hover{background:rgba(255,255,255,.12)}
-#counter{color:#fff;font-size:12px;min-width:54px;text-align:center}
+
+/* 控制栏样式调整：容纳目录按钮 */
+#controls{position:fixed;z-index:20;bottom:2.2vh;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:.3rem;padding:.4rem .6rem;background:rgba(20,25,30,.78);backdrop-filter:blur(8px);border-radius:999px;box-shadow:0 6px 25px rgba(0,0,0,.25)}
+#controls button{border:0;background:transparent;color:#fff;cursor:pointer;border-radius:7px;font-size:15px;transition:background 0.2s}
+#controls button:hover{background:rgba(255,255,255,.15)}
+.ctrl-btn{width:32px;height:30px;display:flex;align-items:center;justify-content:center}
+.toc-btn{padding:0 10px;height:30px;font-size:12px;font-weight:600;letter-spacing:1px}
+#counter{color:#fff;font-size:12px;min-width:48px;text-align:center}
 #hint{position:fixed;right:2vw;bottom:2.5vh;color:rgba(255,255,255,.45);font-size:11px;z-index:10}
 
 @media(max-width:900px){
@@ -171,13 +175,13 @@ h1{font-size:7.2cqw;line-height:1.18;margin:5cqw 0 5cqw}
 <body>
 <div id="book">
 
-<!-- 1. 封面：仅展示上传的图片，去除多余文字 -->
+<!-- 1. 封面 -->
 <section class="page cover" id="p1">
   <img src="cover.jpg" alt="封面图片" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
   <div class="cover-fallback">请放置名为 cover.jpg 的封面图片</div>
 </section>
 
-<!-- 2. 目录页：修复排版并加入点击跳转功能 -->
+<!-- 2. 目录页 -->
 <section class="page normal" id="p2">
   <div class="page-head"><span>CONTENTS</span><b>P2</b></div>
   <h1>目录</h1>
@@ -406,7 +410,7 @@ h1{font-size:7.2cqw;line-height:1.18;margin:5cqw 0 5cqw}
     <article class="abstract has-figure">
       <p>Introduction：II期NAUTIKA1研究（NCT04302025）的首批结果提示，新一代口服KRAS G12C抑制剂divarasib用于可切除早期KRAS G12C阳性NSCLC患者的新辅助治疗具有可管理的安全性和有前景的抗肿瘤活性。本研究报告该队列的更新数据。</p>
       <p>Methods：年龄≥18岁、AJCC第8版分期为IB–IIIB期（仅T3N2）、KRAS G12C阳性NSCLC患者接受新辅助divarasib（400 mg，每日一次）治疗8周，随后接受手术。切除后，PD-L1肿瘤细胞（TC）&lt;1%的患者接受辅助化疗后继续divarasib最长3年、divarasib单药最长3年或标准治疗；PD-L1 TC≥1%的患者接受辅助化疗后联合atezolizumab，或接受标准治疗。主要终点为新辅助divarasib的安全性和可行性。次要终点包括主要病理缓解（MPR）、病理完全缓解（pCR）、影像学客观缓解率（ORR）、淋巴结降期以及辅助divarasib的安全性。探索性分析包括不同共突变（TP53、STK11、KEAP1）状态下的缓解情况。</p>
-      <p>Results：截至2026年2月9日，共入组20例患者（入组截止日期：2025年9月24日）并接受新辅助divarasib治疗；中位年龄70岁，55%的患者为III期疾病。19例患者接受了手术，1例患者退出手术；14例患者接受了辅助治疗，其中5例接受辅助divarasib。没有患者因不良事件（AE）而发生手术延迟。新辅助divarasib治疗期间最常见的AE为腹泻（80%）、恶心（75%）和便秘（35%）；大多数AE为1–2级，没有患者因AE而停药。辅助divarasib期间最常见的AE为腹泻（80%，4/5），且没有患者因AE而停药。MPR达到42%，16%的患者达到pCR。影像学ORR为55%。临床降期发生率为40%（8/20），病理学淋巴结降期发生率为37%（7/19），其中32%（6/19）降期至N0。所有接受手术的患者均实现原发肿瘤R0切除，且未发生术中并发症。</p>
+      <p>Results：截至2026年2月9日，共入组20例患者（入组截止日期：2025年9月24日）并接受新辅助divarasib治疗；中位年龄70岁，55%的患者为III期疾病。19例患者接受了手术，1例患者退出手术；14例患者接受了辅助治疗，其中5例接受辅助divarasib。没有患者因不良事件（AE）而发生手术延迟。新辅助divarasib治疗期间最常见的AE为腹泻（80%）、恶心（75%）和便秘（35%）；大多数AE为1–2级，没有患者因AE而停药。辅助divarasib期间最常见的AE为腹泻（80%，4/5），且没有患者因AE而停药. MPR达到42%，16%的患者达到pCR。影像学ORR为55%。临床降期发生率为40%（8/20），病理学淋巴结降期发生率为37%（7/19），其中32%（6/19）降期至N0。所有接受手术的患者均实现原发肿瘤R0切除，且未发生术中并发症。</p>
       <p>Conclusions：NAUTIKA1的更新数据显示，divarasib单药作为可切除早期KRAS G12C阳性NSCLC的新辅助治疗具有可行性，安全性可管理，并显示出有前景的抗肿瘤活性。Divarasib在辅助治疗阶段同样表现出可管理的安全性。未来将在III期Krascendo 3研究中进一步探索divarasib用于早期可切除NSCLC。</p>
       <div class="abstract-figure"><img src="images/p10.jpg" alt="p10.jpg研究图表"></div>
     </article>
@@ -553,9 +557,10 @@ h1{font-size:7.2cqw;line-height:1.18;margin:5cqw 0 5cqw}
 
 </div>
 <div id="controls">
-  <button id="prev" aria-label="上一页">‹</button>
+  <button id="prev" class="ctrl-btn" aria-label="上一页">‹</button>
+  <button id="to-toc" class="toc-btn" onclick="show(1)">目录</button>
   <span id="counter">P1 / 16</span>
-  <button id="next" aria-label="下一页">›</button>
+  <button id="next" class="ctrl-btn" aria-label="下一页">›</button>
 </div>
 <div id="hint">← → 翻页 · Home / End · F 全屏</div>
 
